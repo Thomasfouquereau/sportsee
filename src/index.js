@@ -1,17 +1,22 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+// import {getTodo} from './components/data/api';
+
+// function getFormatedTodo() {
+//     return getTodo().then((result) => ({
+//             firstName: result.data.userInfos.firstName,
+//             score: result.data.score || result.data.todayScore,
+//             calorieCount: result.data.keyData.calorieCount,
+//             proteinCount: result.data.keyData.proteinCount,
+//             carbohydrateCount: result.data.keyData.carbohydrateCount,
+//             lipidCount: result.data.keyData.lipidCount,
+//     }));
+// }
+
+//getFormatedTodo().then((data) => console.log(data));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <App />
-  </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

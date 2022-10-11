@@ -1,0 +1,61 @@
+.container {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    border-radius: 5px;
+    position: absolute;
+    top: 320px;
+    right: 80px;
+    flex-direction: column;
+    width: 258px;
+    height: 610px;
+    justify-content: space-between
+}
+
+.item {
+    display: flex;
+    height: 124px;
+    width: 258px;
+    background-color: #FBFBFBFB;
+    align-items: center;
+}
+
+.ImgCalories {
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.ImgProteines {
+    background-color: rgba(74, 184, 255, 0.1);
+}
+
+.ImgGlucides {
+    background-color: rgba(249, 206, 35, 0.1);
+}
+
+.ImgLipides {
+    background-color: rgba(253, 81, 129, 0.1);
+}
+
+.ImgCalories,
+.ImgProteines,
+.ImgGlucides,
+.ImgLipides {
+    width: 20px;
+    padding: 21px;
+    height: 25px;
+    border-radius: 6px;
+    margin-left: 32px;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 24px;
+}
+
+.itemContainer {
+    font-weight: 700;
+    font-size: 20px;
+}

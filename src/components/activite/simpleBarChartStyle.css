@@ -1,0 +1,12 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+
+  .recharts-wrapper{
+    position: absolute;
+  }
+
+  .recharts-default-legend{
+    position: relative;
+  }
