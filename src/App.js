@@ -23,8 +23,8 @@ function App() {
     getAverageSessionsData().then((data) => setAverageSessions(data));
     getPerformanceData().then((data) => setPerformance(data));
   }, [])
-  
-  if (!user && !activity && !averageSessions && !performance) return <div class={Style.ldsHourglass}></div>
+
+  if (!user || !activity || !averageSessions || !performance) return <div className={Style.ldsHourglass}>Loading</div>
 
   return (
     <div className="App">
@@ -33,7 +33,7 @@ function App() {
         <Name firstName={user.firstName} />
         <div className={Style.chartContainer}>
           <div className={Style.chartBarItem}>
-           <SimpleBarChart activity={activity.sessionsActivity} />
+            <SimpleBarChart activity={activity.sessionsActivity} />
           </div>
           <div className={Style.chartFlexContainer}>
             <div className={Style.chartLineItem}>

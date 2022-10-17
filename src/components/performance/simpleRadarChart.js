@@ -7,23 +7,27 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis
 } from "recharts";
+import PropTypes from 'prop-types';
 
 export default function SimpleRadarChart(props) {
-  console.log(props);
-  const data = props.performance
-  const datakind = props.subject;
+  const temp = props.performance.map((obj) => {
+    return {
+      value: obj.value,
+      subject: props.subject[obj.kind]
+    }
+  })
+ 
   return (
     <RadarChart
-      cx={125}
-      cy={130}
-      outerRadius={70}
-      width={250}
-      height={260}
-      data={data}
-      
+      cx={85}
+      cy={90}
+      outerRadius={50}
+      width={170}
+      height={180}
+      data={temp}
     >
       <PolarGrid radialLines={false} />
-      <PolarAngleAxis dataKey="subject" fontSize={12} tick={{ fill: '#fff' }} />
+      <PolarAngleAxis dataKey="subject" fontSize={8} tick={{ fill: '#fff' }} />
       <PolarRadiusAxis display='none' />
       <Radar
         name="Mike"
@@ -35,3 +39,8 @@ export default function SimpleRadarChart(props) {
     </RadarChart>
   );
 }
+
+SimpleRadarChart.propTypes = {
+  performance: PropTypes.array,
+  subject: PropTypes.object
+};

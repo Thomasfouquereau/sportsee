@@ -1,0 +1,14 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.text {
+  font-size: 10px;
+  color: #fff;
+  width: 100px;
+  text-align: start;
+  height: 30px;
+  padding-left: 20px;
+  padding-top: 5px;
+}

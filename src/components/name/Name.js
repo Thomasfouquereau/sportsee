@@ -1,4 +1,5 @@
 import style from './name.module.css';
+import PropTypes from 'prop-types';
 
 const UserInfo = (props) => {
     return (
@@ -8,5 +9,9 @@ const UserInfo = (props) => {
         </div>
     )
 };
+
+UserInfo.propTypes = {
+    name: PropTypes.string
+  };
 
 export default UserInfo;

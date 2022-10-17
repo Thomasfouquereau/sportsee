@@ -1,9 +1,17 @@
-import { getData } from './FetchUserDataApi';
+import { getData as getDataFromServer } from './FetchUserDataApi';
+import { getData as getDataFromMock } from '../MockData/FetchUserDataApi';
 
-console.log(getData)
+
+const getUser =  process.env.REACT_APP_IS_MOCK_ACTIVE === "true" ? getDataFromMock : getDataFromServer
+
+/**
+ * recupere les données du fetch ou du mock et les formate 
+ * fetch or mock data recovery and formatting 
+ * @returns {Promise<{lipidCount: *, carbohydrateCount: *, proteinCount: *, calorieCount: *, score: *, firstName: *}>}
+ */
 
 function getFormatedData() {
-    return getData().then((result) => ({
+    return getUser().then((result) => ({
         firstName: result.data.userInfos.firstName,
         score: result.data.score || result.data.todayScore,
         calorieCount: result.data.keyData.calorieCount,
@@ -12,7 +20,5 @@ function getFormatedData() {
         lipidCount: result.data.keyData.lipidCount,
     }));
 }
-
-getFormatedData().then((data) => console.log(data));
 
 export default getFormatedData;

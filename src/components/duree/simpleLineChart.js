@@ -1,4 +1,4 @@
-import "./simpleLineChartStyle.css";
+import style from "./simpleLineChartStyle.module.css";
 import React from "react";
 import {
   LineChart,
@@ -9,25 +9,32 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import PropTypes from 'prop-types';
 
-function CustomDot({cx, cy}) {
+function CustomDot({ cx, cy }) {
   return (
-      <svg>
-          <circle cx={cx} cy={cy} r={8} stroke="#FFFFFF0" fill="#FFFFFF75" />
-          <circle cx={cx} cy={cy} r={4} stroke="white" fill="white" />
-          <rect x={cx} y={0} width="321" height="295" fill="#00000020" />
-      </svg>
+    <svg>
+      <circle cx={cx} cy={cy} r={6} stroke="#FFFFFF0" fill="#FFFFFF75" />
+      <circle cx={cx} cy={cy} r={3} stroke="white" fill="white" />
+      <rect x={cx} y={0} width="321" height="295" fill="#00000020" />
+    </svg>
   );
 }
 
 export default function SimpleLineChart(props) {
 
-  const data = props.averageSessions; 
+  const data = props.averageSessions;
 
+  const renderLegend = () => {
+    return (
+      <h2 className={style.text}>Durée moyenne des sessions</h2>
+    );
+  }
+  
   return (
     <LineChart
-      width={250}
-      height={260}
+      width={170}
+      height={180}
       data={data}
       margin={{
         top: 5,
@@ -36,12 +43,16 @@ export default function SimpleLineChart(props) {
         bottom: 5
       }}
     >
-      <CartesianGrid strokeDasharray="3 3" stroke="#FF0000"/>
+      <CartesianGrid strokeDasharray="3 3" stroke="#FF0000" />
       <XAxis dataKey="day" />
       <YAxis hide />
       <Tooltip />
-      <Legend />
-      <Line type="monotone" dataKey="sessionLength" stroke="#fff" dot={false} activeDot={<CustomDot />} />
+      <Legend content={renderLegend} verticalAlign="top" />
+      <Line type="monotone" dataKey="sessionLength" stroke="#FFF" dot={false} activeDot={<CustomDot />} />
     </LineChart>
   );
 }
+
+SimpleLineChart.propTypes = {
+  averageSessions: PropTypes.array
+};
