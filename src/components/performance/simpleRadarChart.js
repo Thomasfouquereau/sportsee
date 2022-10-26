@@ -41,6 +41,9 @@ export default function SimpleRadarChart(props) {
 }
 
 SimpleRadarChart.propTypes = {
-  performance: PropTypes.array,
+  performance: PropTypes.arrayOf(PropTypes.shape({
+    kind: PropTypes.number,
+    value: PropTypes.number
+  })),
   subject: PropTypes.object
 };

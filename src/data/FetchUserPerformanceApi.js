@@ -1,12 +1,11 @@
 /**
- * fetch les donnee de l'api
- * fetch gives them the api data 
+ * @param {number} id
  * @returns {Promise<{Average: *}>}
  */
 
-export function fetchUserPerformanceData () {
-    const userId = 18;
+export function fetchUserPerformanceData (id) {
+
     return fetch(
-      `http://localhost:3000/user/${userId}/performance`
+      `http://localhost:3000/user/${id}/performance`
     ).then((response) => response.json());
   }

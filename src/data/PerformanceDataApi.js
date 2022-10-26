@@ -9,8 +9,8 @@ const getUserPerformance =  process.env.REACT_APP_IS_MOCK_ACTIVE === "true" ? ge
  * @returns {Promise<{Performance: *, subject: *}>}
  */
 
-function getPerformanceData() {
-    return getUserPerformance().then((result) => ({
+function getPerformanceData(id) {
+    return getUserPerformance(id).then((result) => ({
         Performance: result.data.data,
         subject: result.data.kind
     }));

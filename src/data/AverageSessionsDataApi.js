@@ -9,8 +9,8 @@ const getAverageSessions =  process.env.REACT_APP_IS_MOCK_ACTIVE === "true" ? ge
  * @returns {Promise<{Average: *}>}
  */
 
-function getAverageSessionsData() {
-    return getAverageSessions().then((result) => ({
+function getAverageSessionsData(id) {
+    return getAverageSessions(id).then((result) => ({
         Average: result.data.sessions,
     }));
 }

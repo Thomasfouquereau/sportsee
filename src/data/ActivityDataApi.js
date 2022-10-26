@@ -9,8 +9,8 @@ const fetchActivity = process.env.REACT_APP_IS_MOCK_ACTIVE === "true" ? getActiv
  * @returns {Promise<{sessionsActivity: *}>}
  */
 
-function getActivityData() {
-    return fetchActivity().then((result) => ({
+function getActivityData(id) {
+    return fetchActivity(id).then((result) => ({
         sessionsActivity: result.data.sessions
     }));
 }

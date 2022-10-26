@@ -10,8 +10,8 @@ const getUser =  process.env.REACT_APP_IS_MOCK_ACTIVE === "true" ? getDataFromMo
  * @returns {Promise<{lipidCount: *, carbohydrateCount: *, proteinCount: *, calorieCount: *, score: *, firstName: *}>}
  */
 
-function getFormatedData() {
-    return getUser().then((result) => ({
+function getFormatedData(id) {
+    return getUser(id).then((result) => ({
         firstName: result.data.userInfos.firstName,
         score: result.data.score || result.data.todayScore,
         calorieCount: result.data.keyData.calorieCount,

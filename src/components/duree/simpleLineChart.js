@@ -24,6 +24,27 @@ function CustomDot({ cx, cy }) {
 export default function SimpleLineChart(props) {
 
   const data = props.averageSessions;
+  
+  const temp = data.map((obj) => {
+    return {
+      day :["L", "M", "M", "J", "V", "S", "D"], 
+      sessionLength: obj.sessionLength,
+    }
+  })
+
+  const TooltipContent = ({ active, payload}) => {
+    if (active) {
+      return (
+        <div className={style.tooltip}>
+          <p className={style.tooltipText}>
+            {payload[0].value} min
+          </p>
+        </div>
+      );
+    }
+    return null;
+  };
+
 
   const renderLegend = () => {
     return (
@@ -35,7 +56,7 @@ export default function SimpleLineChart(props) {
     <LineChart
       width={170}
       height={180}
-      data={data}
+      data={temp}
       margin={{
         top: 5,
         right: 0,
@@ -44,9 +65,9 @@ export default function SimpleLineChart(props) {
       }}
     >
       <CartesianGrid strokeDasharray="3 3" stroke="#FF0000" />
-      <XAxis dataKey="day" />
+      <XAxis dataKey="day" tickLine={false} axisLine={false} tick={{fontSize: 10}}/>
       <YAxis hide />
-      <Tooltip />
+      <Tooltip content={TooltipContent} />
       <Legend content={renderLegend} verticalAlign="top" />
       <Line type="monotone" dataKey="sessionLength" stroke="#FFF" dot={false} activeDot={<CustomDot />} />
     </LineChart>
@@ -54,5 +75,8 @@ export default function SimpleLineChart(props) {
 }
 
 SimpleLineChart.propTypes = {
-  averageSessions: PropTypes.array
+  averageSessions: PropTypes.arrayOf(PropTypes.shape({
+    day: PropTypes.number,
+    sessionLength: PropTypes.number
+  }))
 };
