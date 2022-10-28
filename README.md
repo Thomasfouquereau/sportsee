@@ -19,6 +19,8 @@ The web application uses react js, recharts and an api all the sound info availa
 5. Run the app front-end in developpemt mode
 `npm start`in port 3001
 
+6. To create a production build, use `npm run build`
+
 
 ## 3 Built With
 - [React](https://reactjs.org/)
