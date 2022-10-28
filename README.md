@@ -1,10 +1,14 @@
 # Getting Started sportsee app
+
 The web application uses react js, recharts and an api all the sound info available in the documentation
+
 ## 1 Prerequisites
+
 - [Node.js][v16.18.0](https://nodejs.org/en/)
 - [backend](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard)
 
 ## 2 Installation
+
 1. Clone the repository
 
 2. Install dependencies
@@ -21,7 +25,7 @@ The web application uses react js, recharts and an api all the sound info availa
 
 6. To create a production build, use `npm run build`
 
-
 ## 3 Built With
+
 - [React](https://reactjs.org/)
 - [Recharts](http://recharts.org/en-US/)
